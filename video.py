@@ -130,7 +130,7 @@ def play_ascii_video(frames_folder, frame_count, original_fps):
         with open(timestamp_path, 'r') as f:
             timestamps = [float(line.strip()) for line in f.readlines()]
     except FileNotFoundError:
-        print("警告: 未找到时间戳文件，使用固定帧率播放")
+        print("error: 未找到时间戳文件，使用固定帧率播放")
         timestamps = [i / 24 for i in range(frame_count)]
     
     start_time = time.perf_counter()  # 记录播放开始时间
@@ -188,7 +188,6 @@ def main():
         # 删除存放灰度图的文件夹
         shutil.rmtree(output_folder)
 
-        # 重新运行主程序
         main()
 
 
